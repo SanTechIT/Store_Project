@@ -1,0 +1,55 @@
+@charset "UTF-8";
+/* CSS Document */
+nav.topnav {
+	position:fixed;
+	height:0%;
+	width: 100%;
+	background-color: #111 !important;
+	z-index: 3; 
+    top: 0;
+    right: 0;
+	overflow-y: hidden;
+	overflow-x: hidden;
+    transition: 0.5s;
+    z-index:100;
+}
+#openmenu {
+	float: right;
+	margin: 10px;
+	z-index: 2;
+}
+nav.topnav .closebtn {
+    position: absolute;
+	float:right;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+#content-main {
+    transition: margin-top .5s;
+    padding: 20px;
+}
+
+nav.sidenav a:hover, a:focus{
+    color: #f1f1f1;
+}
+
+nav.topnav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    line-height: 28px;
+}
+
+@media screen and (max-height: 450px) {
+    .topnav {padding-top: 15px;}
+    .topnav a {font-size: 18px;}
+}
+#menubar {
+	background-color: rgb(44, 62, 80);
+	height: 50px;
+}

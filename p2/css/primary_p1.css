@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/* CSS Document */
+* {
+	box-sizing: border-box;
+	font-family: "HelveticaNeue", Helvetica, Arial, sans-serif;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	z-index: 1;
+}
+body {
+	background-color: rgb(106, 135, 149);
+	width: 100%;
+}
+p, h1, h2, h3{
+	text-decoration-color: #333;
+	margin:0;
+}
+h3.title {
+	padding-left:10px;
+	line-height:70px;
+	padding-right:10px;
+}
+@media (max-width:465px){
+	h3.title {
+		margin-left:10px;
+		line-height:50px;
+	}	
+}
+nav {
+	height:auto;
+}
+#content-main {
+	width: 100%;
+	margin-top: 0px;
+	background-color: rgb(106, 135, 149);
+}
+footer {
+	position: relative;
+}
+footer > p {
+	position: relative;
+	float:left;
+	z-index: 10;
+    bottom: 0px;
+	margin-bottom: 5px;
+	background-color: cadetblue;
+	padding: 5px;
+	width: 100%;
+	text-align: center;
+}
+.container {
+	margin-top:10px;
+}
+.container-of-container {
+	margin:0 5% 0 5%;
+	border-radius: 5px;
+}
+label > span {
+	color:white;
+}
+label {
+	position: relative;;
+	width: 500%;
+}

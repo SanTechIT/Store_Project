@@ -1,0 +1,49 @@
+@charset "UTF-8";
+/* CSS Document */
+* {
+	box-sizing: border-box;
+	font-family: "HelveticaNeue", Helvetica, Arial, sans-serif;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	z-index: 1;
+}
+body {
+	background-color: rgb(106, 135, 149);
+	width: 100%;
+}
+p, h1, h2, h3, h4{
+	text-decoration-color: #333;
+	margin: 0px;
+}
+h4.navtitle {
+	margin-left: 20px;
+	line-height: 60px;
+	display: inline;
+}
+span.user {
+	float:right;
+	margin-right:20px;
+
+}
+nav {
+	height: auto;
+}
+#content-main {
+	width: 100%;
+	margin-top: 0px;
+	background-color: rgb(106, 135, 149);
+}
+footer {
+	position: relative;
+}
+footer > p {
+	position: relative;
+	float:left;
+	z-index: 10;
+    bottom: 0px;
+	margin-bottom: 5px;
+	background-color: cadetblue;
+	padding: 5px;
+	width: 100%;
+	text-align: center;
+}

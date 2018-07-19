@@ -21,7 +21,6 @@ h4.navtitle {
 	display: inline;
 }
 span.user {
-	float:right;
 	margin-right:20px;
 
 }
@@ -46,4 +45,34 @@ footer > p {
 	padding: 5px;
 	width: 100%;
 	text-align: center;
+}
+.float-right {
+	float:right;
+}
+.float-left {
+	float:left;
+}
+.browsebutton {
+	margin-right:10px;
+}
+h3.title {
+	padding:10px;
+}
+.db-text {
+	color:#546E7A;
+}
+.full-height {
+	position: fixed;
+	height:100vh;
+}
+nav {
+	position: fixed;
+	display: block;
+	left:0;
+	right: 0;
+	top:0;
+	z-index:10;
+}
+.content {
+ padding-top:69px;
 }

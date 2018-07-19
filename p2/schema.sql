@@ -5,19 +5,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema rchang
+-- Schema atdpstore
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema rchang
+-- Schema atdpstore
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `rchang` DEFAULT CHARACTER SET utf8 ;
-USE `rchang` ;
+CREATE SCHEMA IF NOT EXISTS `atdpstore` DEFAULT CHARACTER SET utf8 ;
+USE `atdpstore` ;
 
 -- -----------------------------------------------------
--- Table `rchang`.`Customers`
+-- Table `atdpstore`.`Customers`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `rchang`.`Customers` (
+CREATE TABLE IF NOT EXISTS `atdpstore`.`Customers` (
   `Customer_Id` INT NOT NULL AUTO_INCREMENT,
   `First_Name` VARCHAR(45) NOT NULL,
   `Username` VARCHAR(45) NOT NULL,
@@ -28,9 +28,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `rchang`.`Products`
+-- Table `atdpstore`.`Products`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `rchang`.`Products` (
+CREATE TABLE IF NOT EXISTS `atdpstore`.`Products` (
   `Product_Id` INT NOT NULL AUTO_INCREMENT,
   `Product_Name` VARCHAR(45) NOT NULL,
   `Price` DECIMAL(12,2) NOT NULL,
@@ -41,25 +41,25 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `rchang`.`Orders`
+-- Table `atdpstore`.`Orders`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `rchang`.`Orders` (
+CREATE TABLE IF NOT EXISTS `atdpstore`.`Orders` (
   `Order_Id` INT NOT NULL AUTO_INCREMENT,
   `Customers_Customer_Id` INT NOT NULL,
   PRIMARY KEY (`Order_Id`, `Customers_Customer_Id`),
   INDEX `fk_Orders_Customers1_idx` (`Customers_Customer_Id` ASC),
   CONSTRAINT `fk_Orders_Customers1`
     FOREIGN KEY (`Customers_Customer_Id`)
-    REFERENCES `rchang`.`Customers` (`Customer_Id`)
+    REFERENCES `atdpstore`.`Customers` (`Customer_Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `rchang`.`Order_Items`
+-- Table `atdpstore`.`Order_Items`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `rchang`.`Order_Items` (
+CREATE TABLE IF NOT EXISTS `atdpstore`.`Order_Items` (
   `Primary_Key` INT NOT NULL AUTO_INCREMENT,
   `Products_Product_Id` INT NOT NULL,
   `Amount` INT NOT NULL,
@@ -70,29 +70,30 @@ CREATE TABLE IF NOT EXISTS `rchang`.`Order_Items` (
   INDEX `fk_Order_Items_Orders1_idx` (`Orders_Order_Id` ASC),
   CONSTRAINT `fk_Order_Items_Products1`
     FOREIGN KEY (`Products_Product_Id`)
-    REFERENCES `rchang`.`Products` (`Product_Id`)
+    REFERENCES `atdpstore`.`Products` (`Product_Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Order_Items_Orders1`
     FOREIGN KEY (`Orders_Order_Id`)
-    REFERENCES `rchang`.`Orders` (`Order_Id`)
+    REFERENCES `atdpstore`.`Orders` (`Order_Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `rchang`.`Types`
+-- Table `atdpstore`.`Properties`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `rchang`.`Types` (
-  `Type_Id` INT NOT NULL AUTO_INCREMENT,
-  `Type_Name` VARCHAR(45) NOT NULL,
+CREATE TABLE IF NOT EXISTS `atdpstore`.`Properties` (
+  `Property_Id` INT NOT NULL AUTO_INCREMENT,
   `Products_Product_Id` INT NOT NULL,
-  PRIMARY KEY (`Type_Id`, `Products_Product_Id`),
+  `Property_Name` VARCHAR(45) NOT NULL,
+  `Property_Value` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`Property_Id`, `Products_Product_Id`),
   INDEX `fk_Types_Products1_idx` (`Products_Product_Id` ASC),
   CONSTRAINT `fk_Types_Products1`
     FOREIGN KEY (`Products_Product_Id`)
-    REFERENCES `rchang`.`Products` (`Product_Id`)
+    REFERENCES `atdpstore`.`Products` (`Product_Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

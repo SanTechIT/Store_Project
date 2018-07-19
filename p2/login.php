@@ -54,6 +54,8 @@ if (isset($_SESSION["loggedIn"])){
     <?php
     if(isset($_SESSION['err'])){
         switch ($_SESSION['err']) {
+            case 0:
+                break;
             case 1:
                 echo "Username or password is wrong<br>";
                 break;
@@ -65,7 +67,7 @@ if (isset($_SESSION["loggedIn"])){
                 break;
         }
     }
-
+    $_SESSION['err']=0;
 ?>
                     <a class="login green-text">Log In</a>
                     <a class="create blue-text">Create Account</a>

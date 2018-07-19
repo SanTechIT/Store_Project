@@ -27,7 +27,7 @@ try {
 <body>
     <nav class="light-green darken-3">
     <h4 class="navtitle"><a href="/rchang/p2/">ATDP Store</a></h4>
-        <span class="user">
+        <span class="user float-right">
             <?php
                 if($_SESSION['loggedIn'] == true){
                     echo '<a href="/rchang/p2/profile">' . htmlspecialchars($_SESSION["name"]) . '</a>';
@@ -38,14 +38,17 @@ try {
             ?>
         </span>
     </nav>
-    <div class="container">
-        <div class="row">
+        <div class="row content">
+        <div class="col hide-on-small-only m2 blue-grey lighten-4 full-height" style="height:100%;">
+            <p>Options</p>
+        </div>
+        <div class="row col s12 m9 push-m2" style="width-100%;">
         <?php
             $sth = $dbh->prepare("SELECT * FROM Products");
             $sth->execute();
             $products = $sth->fetchAll();
             foreach ($products as $product) {
-                echo '<div class="col s10 m6 l4 push-s1 pull-s1"><a href="/rchang/p2/items.php?id=' . $product["Product_Id"]. '"><div class="col-content card"><div class="card-image"><img src="./' . $product["Image_Name"] . '" alt="' . $product["Image_Name"] . '"></div>';
+                echo '<div class="col s10 m6 l4 push-s1 pull-s1"><a class="db-text" href="/rchang/p2/items.php?id=' . $product["Product_Id"]. '"><div class="col-content card"><div class="card-image"><img src="./' . $product["Image_Name"] . '" alt="' . $product["Image_Name"] . '"></div>';
                 echo '<div class="card-content"><span class="card-title">' . $product["Product_Name"] . '</span>';
                 echo '<p>' . $product["Price"] . '</p>';
                 echo '<p> Product Description </p>';

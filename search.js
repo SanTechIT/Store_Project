@@ -1,4 +1,4 @@
-var blacklist = ['AMERICAN','CANADIAN','NEW ZEALANDER','CHINESE','CUBAN','NORTH KOREAN','SERBIAN','TUNISIAN','SOMALI','ZIMBABWEAN','CONGOLESE','SOUTH SUDANESE','SUDANESE','TUNISIAN','TURKMEN','IRANIAN','IRAQI','LIBYAN','SYRIAN','ETHIOPIAN','YEMENI','SRI LANKAN','VENEZUELAN'];
+var blacklist = ['AMERICAN','CANADIAN','NEW ZEALANDER','CHINESE','CUBAN','NORTH KOREAN','SERBIAN','TUNISIAN','SOMALI','ZIMBABWEAN','CONGOLESE','SOUTH SUDANESE','SUDANESE','TUNISIAN','TURKMEN','IRANIAN','IRAQI','LIBYAN','SYRIAN','ETHIOPIAN','YEMENI','SRI LANKAN','SINGAPOREAN'];
 var blacklisted = false;
 for (var i = 0; i < blacklist.length; i++) { 
     /* console.log($("div:contains(" + blacklist[i] + ")")); */
@@ -20,7 +20,7 @@ blacklist.forEach((blacklist, index) => {
 
 
 window.addEventListener('load', function() {
-    var blacklist = ['AMERICAN','CANADIAN','NEW ZEALANDER','CHINESE','CUBAN','NORTH KOREAN','SERBIAN','TUNISIAN','SOMALI','ZIMBABWEAN','CONGOLESE','SOUTH SUDANESE','SUDANESE','TUNISIAN','TURKMEN','IRANIAN','IRAQI','LIBYAN','SYRIAN','ETHIOPIAN','YEMENI','SRI LANKAN','VENEZUELAN'];
+    var blacklist = ['AMERICAN','CANADIAN','NEW ZEALANDER','CHINESE','CUBAN','NORTH KOREAN','SERBIAN','TUNISIAN','SOMALI','ZIMBABWEAN','CONGOLESE','SOUTH SUDANESE','SUDANESE','TUNISIAN','TURKMEN','IRANIAN','IRAQI','LIBYAN','SYRIAN','ETHIOPIAN','YEMENI','SRI LANKAN','SINGAPOREAN'];
 var blacklisted = false;
 for (var i = 0; i < blacklist.length; i++) { 
     /* console.log($("div:contains(" + blacklist[i] + ")")); */

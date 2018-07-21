@@ -44,12 +44,13 @@ try {
         </div>
         <div class="row col s12 m9 push-m2" style="width-100%;">
         <?php
-            $sth = $dbh->prepare("SELECT * FROM Products");
+            $sth = $dbh->prepare("SELECT * FROM Products LIMIT 24");
             $sth->execute();
             $products = $sth->fetchAll();
             foreach ($products as $product) {
                 echo '<div class="col s10 m6 l4 push-s1 pull-s1"><a class="db-text" href="/rchang/p2/items.php?id=' . $product["Product_Id"]. '"><div class="col-content card"><div class="card-image"><img src="./' . $product["Image_Name"] . '" alt="' . $product["Image_Name"] . '"></div>';
                 echo '<div class="card-content"><span class="card-title">' . $product["Product_Name"] . '</span>';
+                echo '<p> Rating: ' . $product["Rating"] . '</p>';
                 echo '<p>' . $product["Price"] . '</p>';
                 echo '<p> Product Description </p>';
                 // echo '<a class="waves-effect waves-light btn-small" style="width:100%;">More Infoam <i class="material-icons">add_shopping_cart</i></a>';

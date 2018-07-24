@@ -14,7 +14,7 @@ session_start();
                 if(count($usr) == 0){
                     if(isset($_POST['first_name']) && isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email'])){
                         echo "Succsess with post <br>";
-                        $sth = $dbh->prepare("INSERT INTO customers (`first_name`, `username`,`password`,`email`) VALUES (:first_name, :username, :password, :email);");
+                        $sth = $dbh->prepare("INSERT INTO customers (`first_name`, `username`,`password`,`email`,`IsAdmin`) VALUES (:first_name, :username, :password, :email,'0');");
                             try {
                                 $sth->bindValue(':first_name', $_POST['first_name'], PDO::PARAM_STR);
                                 $sth->bindValue(':username', $_POST['username'], PDO::PARAM_STR);

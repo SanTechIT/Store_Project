@@ -30,10 +30,14 @@ if (isset($_SESSION["loggedIn"])){
         catch (PDOException $e) {
             echo "<p>Error connecting to database!</p>" . $e;
         }
-        $sth = $dbh->prepare("SELECT * FROM ownership");
-        $sth->execute();
-        $usercheck = $sth->fetchAll();
+        $sth = $dbh->prepare("SELECT * FROM ownership WHERE id=:ownership_id AND player_id=:player_id");
+        
         if(isset($_POST['ownershipid']) && isset($_POST['rename'])){
+            $sth->bindValue(':ownership_id',$_POST['ownershipid'], PDO::PARAM_STR);
+            $sth->bindValue(':player_id',$_SESSION['id'], PDO::PARAM_STR);
+            $sth->execute();
+            $usercheck = $sth->fetchAll();
+            
             $sth = $dbh->prepare("UPDATE ownership SET nickname=:nick WHERE id=:oid");
             try{
                 $sth->bindValue(':oid',$_POST['ownershipid'], PDO::PARAM_INT);
@@ -43,7 +47,7 @@ if (isset($_SESSION["loggedIn"])){
                     echo "Nickname can only be 8 char long";
                     return;
                 }
-                if ($usercheck[$_POST['ownershipid'] - 1]['player_id'] == $_SESSION['id']){
+                if ($usercheck[0]['player_id'] == $_SESSION['id']){
                     $sth->execute();
                     echo "<p> Name Changed</p>"; 
                 } else {

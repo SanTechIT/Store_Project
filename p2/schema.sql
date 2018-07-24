@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS `atdpstore`.`Customers` (
   `Username` VARCHAR(45) NOT NULL,
   `Password` VARCHAR(255) NOT NULL,
   `Email` VARCHAR(45) NOT NULL,
+  `IsAdmin` TINYINT NOT NULL,
   PRIMARY KEY (`Customer_Id`))
 ENGINE = InnoDB;
 
@@ -36,6 +37,7 @@ CREATE TABLE IF NOT EXISTS `atdpstore`.`Products` (
   `Price` DECIMAL(12,2) NOT NULL,
   `Image_Name` VARCHAR(45) NOT NULL,
   `Rating` DECIMAL(2,1) NOT NULL,
+  `Product_Description` VARCHAR(3000) NOT NULL,
   PRIMARY KEY (`Product_Id`))
 ENGINE = InnoDB;
 
@@ -46,6 +48,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `atdpstore`.`Orders` (
   `Order_Id` INT NOT NULL AUTO_INCREMENT,
   `Customers_Customer_Id` INT NOT NULL,
+  `IsDone` TINYINT NOT NULL,
   PRIMARY KEY (`Order_Id`, `Customers_Customer_Id`),
   INDEX `fk_Orders_Customers1_idx` (`Customers_Customer_Id` ASC),
   CONSTRAINT `fk_Orders_Customers1`
@@ -82,14 +85,13 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `atdpstore`.`Properties`
+-- Table `atdpstore`.`Types`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `atdpstore`.`Properties` (
-  `Property_Id` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `atdpstore`.`Types` (
+  `Type_Id` INT NOT NULL AUTO_INCREMENT,
+  `Type_Name` VARCHAR(45) NOT NULL,
   `Products_Product_Id` INT NOT NULL,
-  `Property_Name` VARCHAR(45) NOT NULL,
-  `Property_Value` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`Property_Id`, `Products_Product_Id`),
+  PRIMARY KEY (`Type_Id`, `Products_Product_Id`),
   INDEX `fk_Types_Products1_idx` (`Products_Product_Id` ASC),
   CONSTRAINT `fk_Types_Products1`
     FOREIGN KEY (`Products_Product_Id`)

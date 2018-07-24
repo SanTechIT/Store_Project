@@ -59,6 +59,7 @@ try {
                 // echo '<a class="waves-effect waves-light btn-small" style="width:100%;">More Infoam <i class="material-icons">add_shopping_cart</i></a>';
                 echo '</div></div></a></div>';
             }
+            var_dump($_SESSION)
         ?>
     </div>
 </div>

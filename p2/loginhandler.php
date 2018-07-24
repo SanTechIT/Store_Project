@@ -17,6 +17,23 @@ session_start();
                         $_SESSION["loggedIn"] = true;
                         $_SESSION["name"] = $user[0]['First_Name'];
                         $_SESSION["uid"] = $user[0]['Customer_Id'];
+
+                        $sth = $dbh->prepare("SELECT * FROM Orders WHERE Customers_Customer_Id = :uid AND IsDone = 0 ORDER BY Order_Id DESC LIMIT 1");
+                        $sth->bindValue(':uid', $_SESSION['uid']);
+                        $sth->execute();
+                        $oid = $sth->fetchAll(); 
+
+                        if(count($oid) != 1){
+                            echo "OID Not Found Found";
+                        $sth = $dbh->prepare("INSERT INTO Orders (Customers_Customer_Id, IsDone) VALUES (:uid,'0')");
+                        $sth->bindValue(':uid', $_SESSION['uid']);
+                        $sth->execute();
+                        $sth = $dbh->prepare("SELECT * FROM Orders WHERE Customers_Customer_Id = :uid AND IsDone = 0 ORDER BY Order_Id DESC LIMIT 1");
+                        $sth->bindValue(':uid', $_SESSION['uid']);
+                        $sth->execute();
+                        $oid = $sth->fetchAll(); 
+                        }
+                        $_SESSION['oid'] = $oid[0]['Order_Id'];
                         sleep(2);
                         header("Location: /rchang/p2/index.php");
                     } else {

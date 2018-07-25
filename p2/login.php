@@ -68,6 +68,9 @@ if (isset($_SESSION["loggedIn"])){
             case 10:
                 echo "That username already Exsists<br>";
                 break;
+            case 11:
+                echo "Username is too long<br>";
+                break;
             default;
                 echo "Unknown Error <br>";
                 break;

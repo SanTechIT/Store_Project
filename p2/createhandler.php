@@ -18,7 +18,10 @@ require("config.php");
                 
                 if(count($usr) == 0){
                     if(isset($_POST['first_name']) && isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email'])){
-                        echo "Succsess with post <br>";
+                        if(length($_POST['first_name']) > 45){
+                            $_SESSION['err'] = 11;
+                        header("Location: /rchang/p2/login.php");
+                        }
                         $sth = $dbh->prepare("INSERT INTO customers (`first_name`, `username`,`password`,`email`,`IsAdmin`) VALUES (:first_name, :username, :password, :email,'0');");
                             try {
                                 $sth->bindValue(':first_name', $_POST['first_name'], PDO::PARAM_STR);

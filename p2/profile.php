@@ -34,9 +34,9 @@ try {
         <span class="user float-right">
             <?php
                 if($_SESSION['loggedIn'] == true){
-                    echo '<a href="/rchang/p2/profile">' . htmlspecialchars($_SESSION["name"]) . '</a>';
+                    echo '<a href="/rchang/p2/profile.php">' . htmlspecialchars($_SESSION["name"]) . '</a>';
                 } else {
-                    echo '<a href="/rchang/p2/login">Log In</a>';
+                    echo '<a href="/rchang/p2/login.php">Log In</a>';
                 }
             ?>
         </span>

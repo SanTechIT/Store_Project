@@ -37,8 +37,8 @@ try {
                 
             ?>
         </span>
-        <span class="float-right browsebutton"><a href="./store.php">Browse</a></span>
-        <span class="float-right">
+        <span class="float-right user"><a href="./store.php">Browse</a></span>
+        <span class="user float-right">
             <?php
                 if($_SESSION['isAdmin']){
                     echo '<a href="/rchang/p2/admin.php"> Admin Page</a>';

@@ -79,11 +79,11 @@ try {
             $products = $sth->fetchAll();
             if(count($products) != 0){
             foreach ($products as $product) {
-                echo '<div class="row"><div class="col m7 s12 fill"><img class="materialboxed"  style="width:100%; margin-top:7px; z-index:1;" src="./' . $product["Image_Name"] . '" alt="' . $product["Image_Name"] . '"></div>';
+                echo '<div class="row"><div class="col m7 s12 fill"><img class="materialboxed pimg" src="./' . $product["Image_Name"] . '" alt="' . $product["Image_Name"] . '"></div>';
                 // echo '<div class="card-image"><img src="./' . $product["Image_Name"] . '" alt="' . $product["Image_Name"] . '">';
-                echo '<div class="col m4 s12 card" style="z-index:0;"> <div class="card-content">
+                echo '<div class="col m4 s12 card z0"> <div class="card-content">
                 ' . $product["Product_Description"] . '</p></div></div>';
-                // echo '<a class="waves-effect waves-light btn-small" style="width:100%;">More Infoam <i class="material-icons">add_shopping_cart</i></a>';
+                // echo '<a class="waves-effect waves-light btn-small fwid">More Infoam <i class="material-icons">add_shopping_cart</i></a>';
                 echo '<div>';
                 echo '</div>';
                 echo     '</div>';
@@ -91,14 +91,14 @@ try {
                 echo '<div class="col m3 hide-on-small-only blue-grey lighten-4 addcartbox">';
                 echo     '<div class="row">';
                 echo         '<div class="col s12">';
-                echo '<h5 style="display:inline-block">' . $product["Product_Name"] . ' - ' . '</h5>';
-                echo '<h6 style="display:inline-block"> &nbsp;' . $product["Price"] . '</h6>';
+                echo '<h5 class="inlineb">' . $product["Product_Name"] . ' - ' . '</h5>';
+                echo '<h6 class="inlineb"> &nbsp;' . $product["Price"] . '</h6>';
                 echo         '</div>';
                 echo         '<div class="col s12">';
                 echo '<form action="addCart.php" method="post">';
                 echo '  <input type="hidden" id="Order_Item" name="Order_Item" value="' . $_GET['id'] . '">';
                 echo '  <input type="number" id="Amount" name="Amount" value="1">';
-                echo             '<label><input type="submit" value="submit" class="waves-effect waves-light btn" style="width:100%;"></label>';
+                echo             '<label><input type="submit" value="submit" class="waves-effect waves-light btn fwid"></label>';
                 echo '</form>';
                 echo         '</div>';
                 echo     '</div>';
@@ -114,8 +114,8 @@ try {
                 echo '</div>';
                 echo     '</div> ';
                 echo    '<div class="row">';
-                echo '<div class="col hide-on-med-and-up s12 blue-grey lighten-4 addcartboxm" style="padding:0;">';
-                echo     '<a class="waves-effect waves-light btn" style="width:100%;">PLEASE DO NOT USE THE MOBILE SITE!<i class="material-icons left">add_shopping_cart</i></a>';
+                echo '<div class="col hide-on-med-and-up s12 blue-grey lighten-4 addcartboxm np">';
+                echo     '<a class="waves-effect waves-light btn fwid">PLEASE DO NOT USE THE MOBILE SITE!<i class="material-icons left">add_shopping_cart</i></a>';
                 echo '</div>';
                 echo     '</div>';
             } 

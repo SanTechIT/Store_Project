@@ -104,3 +104,23 @@ nav {
     min-width: 100%;
     min-height: 100%
 }
+.pimg{
+	width:100%; 
+	margin-top:7px; 
+	z-index:1;
+}
+.inlineb {
+	display:inline-block;
+}
+.fwid {
+	width: 100%;
+}
+.z0 {
+	z-index:0;
+}
+.np {
+	padding:0;
+}
+.nm {
+	margin:0;
+}

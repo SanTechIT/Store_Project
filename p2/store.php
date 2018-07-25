@@ -39,10 +39,10 @@ try {
         </span>
     </nav>
         <div class="row content">
-        <div class="col hide-on-small-only m2 blue-grey lighten-4 full-height" style="height:100%;">
+        <div class="col hide-on-small-only m2 blue-grey lighten-4 full-height">
             <p>Options</p>
         </div>
-        <div class="row col s12 m9 push-m2" style="width-100%;">
+        <div class="row col s12 m9 push-m2 fwid">
         <?php
             $sth = $dbh->prepare("SELECT * FROM Products LIMIT 24");
             $sth->execute();

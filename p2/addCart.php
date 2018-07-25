@@ -6,7 +6,7 @@ session_start();
                     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
                 } catch (PDOException $e) {
                     echo "<p>Error connecting to database!</p>" . $e;
-                } if($_SESSION['LoggedIn']){
+                } if($_SESSION['loggedIn'] == true){
                 if(isset($_POST['Order_Item']) && isset($_POST['Amount'])){
                     if($_POST['Amount'] > 0){
                         $sth = $dbh->prepare("SELECT * FROM Products WHERE Product_Id =:pid");

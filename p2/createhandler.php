@@ -37,7 +37,7 @@ session_start();
                     }
                 } else {
                     echo "Error, Username already exists <br>";
-                }
+                } 
             ?>
 <!doctype html>
 <html lang="en">

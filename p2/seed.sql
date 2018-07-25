@@ -10,9 +10,7 @@ VALUES
 ('Item 5','150.00','Image_Name.png','4.9','Default 5'),
 ('Item 6','70.00','Image_Name.png','3.5','Default 6');
 
-INSERT INTO Order_Items
-(Products_Product_Id, Amount,Total_Price,Orders_Order_Id) 
-VALUES ('1','1','100','2')
-
-
-INSERT INTO Orders (Customers_Customer_Id, IsDone) VALUES (:uid,'0')
+INSERT INTO Customers
+(First_Name, Username, Password, Email, IsAdmin)
+VALUES
+('Admin','admin','$2y$10$Z/FWH7GWpfLmjqPjbOmO1.5Iim81SenDoV9AJeiS.mqdJjnJh4CIi','web@serverintl.net','1');

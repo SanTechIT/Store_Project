@@ -17,6 +17,7 @@ session_start();
                         $_SESSION["loggedIn"] = true;
                         $_SESSION["name"] = $user[0]['First_Name'];
                         $_SESSION["uid"] = $user[0]['Customer_Id'];
+                        $_SESSION['isAdmin'] = $user[0]['IsAdmin'];
 
                         $sth = $dbh->prepare("SELECT * FROM Orders WHERE Customers_Customer_Id = :uid AND IsDone = 0 ORDER BY Order_Id DESC LIMIT 1");
                         $sth->bindValue(':uid', $_SESSION['uid']);

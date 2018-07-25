@@ -30,14 +30,23 @@ try {
         <span class="user float-right">
             <?php
                 if($_SESSION['loggedIn'] == true){
-                    echo '<a href="/rchang/p2/profile">' . htmlspecialchars($_SESSION["name"]) . '</a>';
+                    echo '<a href="/rchang/p2/profile.php">' . htmlspecialchars($_SESSION["name"]) . '</a>';
                 } else {
-                    echo '<a href="/rchang/p2/login">Log In</a>';
+                    echo '<a href="/rchang/p2/login.php">Log In</a>';
                 }
                 
             ?>
         </span>
         <span class="float-right browsebutton"><a href="./store.php">Browse</a></span>
+        <span class="float-right">
+            <?php
+                if($_SESSION['isAdmin']){
+                    echo '<a href="/rchang/p2/admin.php"> Admin Page</a>';
+                } else {
+                }
+                
+            ?>
+        </span>
     </nav>
     <div class="container content">
         <div class="row">

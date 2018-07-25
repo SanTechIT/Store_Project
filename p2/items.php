@@ -57,7 +57,7 @@ try {
                 echo "Invalid Input for number<br>";
                 break;
             case 2:
-                echo "You forgot something><br>";
+                echo "You forgot something<br>";
                 break;
             case 7;
                 echo "A product with that Id does not exsist<br>";

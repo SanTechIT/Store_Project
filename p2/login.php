@@ -38,10 +38,10 @@ if (isset($_SESSION["loggedIn"])){
 <body>
     <nav class="light-green darken-3">
     <h4 class="navtitle"><a href="/rchang/p2/">ATDP Store</a></h4>
-        <span class="user">
+        <span class="user float-right">
             <?php
                 if($_SESSION['loggedIn'] == true){
-                    echo '<a href="/rchang/p2/profile">' . htmlspecialchars($_SESSION["name"]) . '</a>';
+                    echo '<a href="/rchang/p2/profile.php">' . htmlspecialchars($_SESSION["name"]) . '</a>';
                 } else {
                 }
             ?>
@@ -60,7 +60,13 @@ if (isset($_SESSION["loggedIn"])){
                 echo "Username or password is wrong<br>";
                 break;
             case 2:
-                echo "You forgot something><br>";
+                echo "You forgot something<br>";
+                break;
+            case 9:
+                echo "SQL Error<br>";
+                break;
+            case 10:
+                echo "That username already Exsists<br>";
                 break;
             default;
                 echo "Unknown Error <br>";

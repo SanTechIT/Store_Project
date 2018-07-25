@@ -1,16 +1,21 @@
 <?php
 session_start();
-
-                require("config.php");
+require("config.php");
                 try {
                     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
                 } catch (PDOException $e) {
                     echo "<p>Error connecting to database!</p>" . $e;
                 }
-                $sth = $dbh->prepare("SELECT * FROM customers WHERE username =:username");
-                $sth->bindValue(':username', $_POST['username'], PDO::PARAM_STR);
-                $sth->execute();
-                $usr = $sth->fetchAll();
+                if (isset($username)){
+                    $sth = $dbh->prepare("SELECT * FROM customers WHERE username =:username");
+                    $sth->bindValue(':username', $_POST['username'], PDO::PARAM_STR);
+                    $sth->execute();
+                    $usr = $sth->fetchAll();
+                } else {
+                    $_SESSION['err'] = 2;
+                    header("Location: /rchang/p2/login.php");
+                }
+                
                 if(count($usr) == 0){
                     if(isset($_POST['first_name']) && isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email'])){
                         echo "Succsess with post <br>";
@@ -27,36 +32,20 @@ session_start();
                                 }
 
                                 $sth->execute();
+                                $_SESSION['err'] = 0;
                                 header("Location: /rchang/p2/login.php");
                             } 
                             catch (PDOException $e){
-                                echo "Error: " . $e;
+                                $_SESSION['err'] = 9;
+                                header("Location: /rchang/p2/login.php");
                         }
                     } else {
-                        echo "You missed something <br>";
+                        $_SESSION['err'] = 2;
+                        header("Location: /rchang/p2/login.php");
                     }
                 } else {
-                    echo "Error, Username already exists <br>";
+                    $_SESSION['err'] = 10;
+                    header("Location: /rchang/p2/login.php");
                 } 
             ?>
 <!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="/rchang/p2/js/jquery-3.2.1.min.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="/rchang/p2/js/materialize.min.js"></script>
-    <link href="/rchang/p2/css/materialize.min.css" rel="stylesheet" type="text/css">
-    <link href="/rchang/p2/css/primary.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-    <nav class="light-green darken-3">
-    <h4 class="navtitle"><a href="/rchang/p2/">Creating User...</a></h4>
-        <span class="user">
-            
-        </span>
-    </nav>
-</body>
-</html>

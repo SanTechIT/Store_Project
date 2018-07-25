@@ -5,12 +5,28 @@ if (isset($_SESSION["loggedIn"])){
 } else {
     $_SESSION["loggedIn"] = false;
 }
+if (isset($_SESSION["isAdmin"])){
+    
+} else {
+    $_SESSION["isAdmin"] = false;
+}
 require("config.php");
 try {
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
 } catch (PDOException $e) {
     echo "<p>Error connecting to database!</p>" . $e;
 }
+
+if(isset($_SESSION['err'])){
+    switch ($_SESSION['err']) {
+        case 0:
+            break;
+        default;
+            echo "Unknown Error <br>";
+            break;
+    }
+}
+$_SESSION['err']=0;
 ?>
 <!doctype html>
 <html lang="en">
@@ -68,7 +84,6 @@ try {
                 // echo '<a class="waves-effect waves-light btn-small" style="width:100%;">More Infoam <i class="material-icons">add_shopping_cart</i></a>';
                 echo '</div></div></a></div>';
             }
-            var_dump($_SESSION)
         ?>
     </div>
 </div>

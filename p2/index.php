@@ -21,12 +21,14 @@ if(isset($_SESSION['err'])){
     switch ($_SESSION['err']) {
         case 0:
             break;
+        echo "Permission Error<br>";
+            break;
         default;
             echo "Unknown Error <br>";
             break;
     }
 }
-$_SESSION['err']=0;
+$_SESSION['err'] = 0;
 ?>
 <!doctype html>
 <html lang="en">

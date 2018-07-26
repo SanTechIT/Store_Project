@@ -5,10 +5,12 @@ if (isset($_SESSION["loggedIn"])){
 
     } else {
         header("Location: /rchang/p2/login.php");
+        exit();
     }
 } else {
     $_SESSION["loggedIn"] = false;
     header("Location: /rchang/p2/login.php");
+    exit();
 }
 require("config.php");
 try {

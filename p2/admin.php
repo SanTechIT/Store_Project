@@ -1,10 +1,13 @@
 <?php
 session_start();
-if($_SESSION['isAdmin']){
-} else {
-    header("Location: /rchang/p2/index.php");
-}
-
+if (isset($_SESSION['isAdmin'])){
+    if($_SESSION['isAdmin']){
+    } else {
+        $_SESSION['err'] = 99;
+        header("Location: /rchang/p2/index.php");
+        exit();
+    }
+    }
 require("config.php");
 try {
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
@@ -16,10 +19,17 @@ if(isset($_SESSION['err'])){
     switch ($_SESSION['err']) {
         case 0:
             break;
+        case 2:
+            echo "You forgot something...<br>";
+            break;
+        case 9:
+            echo "Sql Error<br>";
+            break;
         default;
             echo "Unknown Error <br>";
             break;
     }
+    $_SESSION['err'] = 0;
 }
 
 ?>
@@ -43,7 +53,7 @@ if(isset($_SESSION['err'])){
     <div class="card">
     <div class="card-content">
     <span class="card-title">Add Items</span>
-    <h6>Please dont be an idiot, there is no easy way to check decimal places (none that I could understand within 5 minuites)</h6>
+    <h6>Please dont be an idiot, there is not a easy way to check decimal places that I know of</h6>
         <form action="additem.php" method="POST">
             <input placeholder="Product_Name" name="Product_Name" type="text" required>
             <input placeholder="Image_Name" name="Image_Name" type="text" required>

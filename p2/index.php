@@ -88,5 +88,6 @@ $_SESSION['err'] = 0;
         ?>
     </div>
 </div>
+<footer><p><a class="white-text" href="https://github.com/SanTechIT/Store_Project">Check me out on Github</a></p></footer>
 </body>
 </html>

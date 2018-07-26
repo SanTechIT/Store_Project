@@ -46,33 +46,36 @@ try {
             ?>
         </span>
         <span class="float-right user"><a href="./store.php">Browse</a></span>
-
+        <span class="user float-right">
+        <?php
+        if(isset($_SESSION['err'])){
+            switch ($_SESSION['err']) {
+                case 0:
+                    break;
+                case 6:
+                    echo "Invalid Input for number<br>";
+                    break;
+                case 2:
+                    echo "You forgot something<br>";
+                    break;
+                case 7;
+                    echo "A product with that Id does not exsist<br>";
+                    break;
+                case 8;
+                    echo "Please Log In First<br>";
+                    break;
+                default;
+                    echo "Unknown Error <br>";
+                    break;
+            }
+        }
+        $_SESSION['err']=0;
+        ?>
+        </span>
         </nav>
         <div class="row content" class="float:none;">
             <div class="col s12 m9">
             <?php
-    if(isset($_SESSION['err'])){
-        switch ($_SESSION['err']) {
-            case 0:
-                break;
-            case 6:
-                echo "Invalid Input for number<br>";
-                break;
-            case 2:
-                echo "You forgot something<br>";
-                break;
-            case 7;
-                echo "A product with that Id does not exsist<br>";
-                break;
-            case 8;
-                echo "Please Log In First<br>";
-                break;
-            default;
-                echo "Unknown Error <br>";
-                break;
-        }
-    }
-    $_SESSION['err']=0;
 ?>
                 <?php
             $sth = $dbh->prepare("SELECT * FROM Products WHERE Product_Id = :id");

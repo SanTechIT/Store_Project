@@ -45,7 +45,9 @@ try {
         <span class="float-right browsebutton"><a href="./store.php">Browse</a></span>
     </nav>
     <div class="container content" "float:none;">
+    <div class="card"><div class="card-action">
         <a href="/rchang/p2/logouthandler.php">Logout</a>
+        </div></div>
         <?php 
         echo '<div class="card"><div class="card-content">';
             $sth = $dbh->prepare("SELECT * FROM Orders JOIN Customers ON Orders.Customers_Customer_Id = Customers.Customer_Id JOIN Order_Items ON Order_Items.Orders_Order_Id = Orders.Order_Id JOIN Products ON Products.Product_Id = Order_Items.Products_Product_Id WHERE Customers_Customer_Id = :uid AND Orders_Order_Id = :oid ORDER BY Order_Id ASC");

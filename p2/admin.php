@@ -39,7 +39,21 @@ if(isset($_SESSION['err'])){
     <h4 class="navtitle"><a href="/rchang/p2/">ATDP Store</a></h4>
         <span class="float-right user"><a href="./store.php">Browse</a></span>
     </nav>
-    <div class="content float-none">
+    <div class="container content float-none">
+    <div class="card">
+    <div class="card-content">
+    <span class="card-title">Add Items</span>
+    <h6>Please dont be an idiot, there is no easy way to check decimal places (none that I could understand within 5 minuites)</h6>
+        <form action="additem.php" method="POST">
+            <input placeholder="Product_Name" name="Product_Name" type="text" required>
+            <input placeholder="Image_Name" name="Image_Name" type="text" required>
+            <input placeholder="Price (12 Percision 2 Decimal)" name="Price" type="number" step="0.01" required>
+            <input placeholder="Rating (2 Percision 1 Decimal)"name="Rating" type="number" step="0.1" required>
+            <input placeholder="Product_Description"name="Product_Description" type="text" required>
+            <label><input type="submit" value="submit" class="waves-effect waves-light btn fwid"></label>
+        </form>
+    </div>
+    </div>
     </div>
 </body>
 </html>

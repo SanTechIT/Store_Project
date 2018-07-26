@@ -45,12 +45,13 @@ try {
     <div class="container content" "float:none;">
         <a href="/rchang/p2/logouthandler.php">Logout</a>
         <?php 
+        echo '<div class="card"><div class="card-content">';
             $sth = $dbh->prepare("SELECT * FROM Orders JOIN Customers ON Orders.Customers_Customer_Id = Customers.Customer_Id JOIN Order_Items ON Order_Items.Orders_Order_Id = Orders.Order_Id JOIN Products ON Products.Product_Id = Order_Items.Products_Product_Id WHERE Customers_Customer_Id = :uid AND Orders_Order_Id = :oid ORDER BY Order_Id ASC");
             $sth->bindValue(':uid', $_SESSION['uid']);
             $sth->bindValue(':oid', $_SESSION['oid']);
             $sth->execute();
             $orders = $sth->fetchAll();
-            echo '<table class="white-text">';
+            echo '<table class="">';
             echo '<tr><td>Order #</td><td>Product</td><td>Desc</td><td>Amount</td><td>Total</td></tr>';
             foreach ($orders as $order) {
                 echo '<tr>';
@@ -61,7 +62,6 @@ try {
                 echo '<td>' . $order["Total_Price"] . '</td>';
                 echo '</tr>';
             }
-            
             $sth = $dbh->prepare("SELECT * FROM Order_Items WHERE Orders_Order_Id = :oid");
             $sth->bindValue(':oid', $_SESSION['oid']);
             $sth->execute();
@@ -79,12 +79,16 @@ try {
                 echo '</tr>';
             echo '</table>';
             echo '<form method="POST" action="checkout.php"><label><input type="submit" value="Checkout" class="waves-effect waves-light btn"></label></form>';
+
+            echo '</div></div>';
+            echo '<div class="card"><div class="card-content">';
+
             echo '<h4> Order History </h4>';
             $sth = $dbh->prepare("SELECT * FROM Orders JOIN Customers ON Orders.Customers_Customer_Id = Customers.Customer_Id JOIN Order_Items ON Order_Items.Orders_Order_Id = Orders.Order_Id JOIN Products ON Products.Product_Id = Order_Items.Products_Product_Id WHERE Customers_Customer_Id = :uid");
             $sth->bindValue(':uid', $_SESSION['uid']);
             $sth->execute();
             $orders = $sth->fetchAll();
-            echo '<table class="white-text">';
+            echo '<table class="">';
             echo '<tr><td>Order #</td><td>Product</td><td>Desc</td><td>Amount</td><td>Total</td></tr>';
             foreach ($orders as $order) {
                 echo '<tr>';
@@ -95,6 +99,9 @@ try {
                 echo '<td>' . $order["Total_Price"] . '</td>';
                 echo '</tr>';
             }
+            echo '</table>';
+            echo '</div></div>';
+
         ?>
     </div>
 </body>

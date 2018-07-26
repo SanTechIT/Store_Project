@@ -96,8 +96,8 @@ try {
                 echo         '</div>';
                 echo         '<div class="col s12">';
                 echo '<form action="addCart.php" method="post">';
-                echo '  <input type="hidden" id="Order_Item" name="Order_Item" value="' . $_GET['id'] . '">';
-                echo '  <input type="number" id="Amount" name="Amount" value="1">';
+                echo '  <input type="hidden" id="Order_Item" name="Order_Item" value="' . $_GET['id'] . '" required>';
+                echo '  <input type="number" id="Amount" name="Amount" value="1" required>';
                 echo             '<label><input type="submit" value="submit" class="waves-effect waves-light btn fwid"></label>';
                 echo '</form>';
                 echo         '</div>';

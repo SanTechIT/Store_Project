@@ -80,7 +80,6 @@ $_SESSION['err']=0;
                 echo '<div class="card-content"><span class="card-title">' . $product["Product_Name"] . '</span>';
                 echo '<p> Rating: ' . $product["Rating"] . '</p>';
                 echo '<p>' . $product["Price"] . '</p>';
-                echo '<p> Product Description </p>';
                 // echo '<a class="waves-effect waves-light btn-small" style="width:100%;">More Infoam <i class="material-icons">add_shopping_cart</i></a>';
                 echo '</div></div></a></div>';
             }

@@ -52,6 +52,9 @@ footer > p {
 .float-left {
 	float:left;
 }
+.float-none {
+	float:none;
+}
 .browsebutton {
 	margin-right:10px;
 }
